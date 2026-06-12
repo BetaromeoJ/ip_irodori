@@ -167,17 +167,25 @@
   .hd-inner {
     max-width: var(--max);
     margin: 0 auto;
-    padding: 13px 20px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 12px;
   }
-  .hd-name {
-    font-family: var(--serif);
-    font-size: .92rem;
-    color: var(--gold-lt);
-    letter-spacing: .12em;
+  /* ヘッダーロゴ画像 */
+  .hd-logo {
+    display: block;
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    /* logo2（黒背景反転版）をそのまま使う。
+       黒い余白が気になる場合は mix-blend-mode で馴染ませる */
+    mix-blend-mode: lighten;
+    opacity: .92;
+    transition: opacity .2s;
   }
+  .hd-logo:hover { opacity: 1; }
   .hd-btn a {
     font-size: .76rem;
     color: var(--gold-lt);
@@ -237,13 +245,23 @@
     margin: 0 auto;
     padding: 40px 20px 60px;
   }
-  .fv-label {
+  /* ロゴエリア — FV内 */
+  .fv-logo-wrap { margin-bottom: 24px; }
+  .fv-logo {
     display: block;
-    font-size: .64rem;
-    letter-spacing: .28em;
-    color: var(--gold);
-    font-family: var(--serif);
-    margin-bottom: 18px;
+    width: clamp(160px, 38vw, 260px);
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: lighten;
+    opacity: .95;
+    filter: drop-shadow(0 0 20px rgba(184,147,90,.3));
+  }
+  /* 金の細線区切り */
+  .fv-divider {
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 0 0 22px;
   }
   .fv-catch {
     font-family: var(--serif);
@@ -781,7 +799,10 @@
 ============================================================ -->
 <header id="hd">
   <div class="hd-inner">
-    <div class="hd-name">焼鳥酒肴 彩り</div>
+    <!-- ヘッダーロゴ: 黒背景反転版を使用 -->
+    <a href="#fv">
+      <img src="logo2.PNG" alt="焼鳥酒肴 彩り" class="hd-logo">
+    </a>
     <div class="hd-btn"><a href="tel:08052509872">📞 ご予約</a></div>
   </div>
 </header>
@@ -814,7 +835,13 @@
   <div class="fv-ov"></div>
   <div class="fv-body-wrap">
     <div class="fv-body">
-      <span class="fv-label">焼鳥酒肴 IRODORI / 鹿児島・唐湊町</span>
+
+      <!-- FVロゴ: 黒背景反転版を使用 -->
+      <div class="fv-logo-wrap">
+        <img src="logo2.PNG" alt="焼鳥酒肴 彩り" class="fv-logo">
+      </div>
+      <div class="fv-divider"></div>
+
       <h1 class="fv-catch">
         二階の扉を開けると、<br><em>大人の夜が</em>始まる。
       </h1>
@@ -1430,7 +1457,12 @@
 ============================================================ -->
 <footer id="ft">
   <div class="inner">
-    <div class="ft-logo">焼鳥酒肴 彩り</div>
+    <!-- フッターは白背景ロゴ1を使用（mix-blend-modeで暗背景に馴染ませる） -->
+    <div style="margin-bottom:12px;">
+      <img src="logo2.PNG" alt="焼鳥酒肴 彩り"
+           style="width:120px;height:auto;object-fit:contain;
+                  mix-blend-mode:lighten;opacity:.7;margin:0 auto;display:block;">
+    </div>
     <div class="ft-roman">YAKITORI SHUKO IRODORI</div>
     <div class="ft-links">
       <a href="https://www.instagram.com/yakitori_kagoshima" target="_blank" rel="noopener">Instagram</a>
