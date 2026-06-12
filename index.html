@@ -650,21 +650,11 @@
     line-height: 1.8;
   }
   .info-note { font-size: .73rem; color: var(--muted); margin-top: 3px; }
-  .map-area {
-    border: 1.5px dashed var(--gold);
-    min-height: 190px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 10px;
-    padding: 28px;
+  .map-wrap {
     margin-bottom: 24px;
+    border: 1px solid var(--border);
+    overflow: hidden;
   }
-  .map-ico   { font-size: 1.9rem; }
-  .map-label { font-size: .81rem; color: #999; line-height: 1.75; }
-  .map-note  { font-size: .73rem; color: var(--gold); }
   .info-access {
     font-size: .83rem;
     color: #999;
@@ -801,7 +791,7 @@
   <div class="hd-inner">
     <!-- ヘッダーロゴ: 黒背景反転版を使用 -->
     <a href="#fv">
-      <img src="logo2.PNG" alt="焼鳥酒肴 彩り" class="hd-logo">
+      <img src="images/logo_dark.PNG" alt="焼鳥酒肴 彩り" class="hd-logo">
     </a>
     <div class="hd-btn"><a href="tel:08052509872">📞 ご予約</a></div>
   </div>
@@ -838,7 +828,7 @@
 
       <!-- FVロゴ: 黒背景反転版を使用 -->
       <div class="fv-logo-wrap">
-        <img src="logo2.PNG" alt="焼鳥酒肴 彩り" class="fv-logo">
+        <img src="images/logo_dark.PNG" alt="焼鳥酒肴 彩り" class="fv-logo">
       </div>
       <div class="fv-divider"></div>
 
@@ -1396,24 +1386,18 @@
       <tr><th>💳 支払い</th><td>現金・クレジットカード<br>各種QR決済</td></tr>
       <tr><th>🚗 駐車場</th><td>なし</td></tr>
     </table>
-    <!--
-    ▼ Googleマップの入れ方 ▼
-    1. Googleマップで「焼鳥酒肴 彩り」を検索
-    2. 「共有」→「地図を埋め込む」→ iframeコードをコピー
-    3. 下の .map-area ブロック全体を削除し、iframeを貼り付ける
-       例: <iframe src="https://www.google.com/maps/embed?..."
-            width="100%" height="220" style="border:0"
-            allowfullscreen="" loading="lazy"></iframe>
-    -->
-    <div class="map-area">
-      <div class="map-ico">🗺</div>
-      <p class="map-label">
-        【Googleマップ 埋め込みエリア】<br>
-        Googleマップで店舗を検索し<br>
-        「共有 → 地図を埋め込む」の<br>
-        iframeコードをここに貼り付けてください。
-      </p>
-      <p class="map-note">コードが届き次第すぐ差し込めます</p>
+    <!-- Googleマップ — 基本情報記載のURLをiframeで表示 -->
+    <div class="map-wrap">
+      <iframe
+        src="https://maps.google.com/maps?q=%E9%B9%BF%E5%85%90%E5%B3%B6%E5%B8%82%E5%94%90%E6%B9%8A%E7%94%BA1-2+%E8%A5%BF%E5%B2%A1%E3%83%93%E3%83%AB202&output=embed&z=16"
+        width="100%"
+        height="220"
+        style="border:0; display:block;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="焼鳥酒肴 彩り — Googleマップ">
+      </iframe>
     </div>
     <p class="info-access">
       唐湊町の西岡ビル2階です。<br>
@@ -1459,7 +1443,7 @@
   <div class="inner">
     <!-- フッターは白背景ロゴ1を使用（mix-blend-modeで暗背景に馴染ませる） -->
     <div style="margin-bottom:12px;">
-      <img src="logo2.PNG" alt="焼鳥酒肴 彩り"
+      <img src="images/logo_dark.PNG" alt="焼鳥酒肴 彩り"
            style="width:120px;height:auto;object-fit:contain;
                   mix-blend-mode:lighten;opacity:.7;margin:0 auto;display:block;">
     </div>
