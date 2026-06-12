@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>焼鳥酒肴 彩り｜鹿児島・唐湊町の隠れ家 本格炭火焼き鳥</title>
+  <meta name="description" content="鹿児島市唐湊町ビル2階。中村夫婦が営む炭火本格焼き鳥と地鶏刺し・自家製料理の隠れ家酒肴店。営業18:00〜23:00。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+  /* ============================================================
+     デザイントークン
+  ============================================================ */
+  :root {
+    --ink:      #0f1118;
+    --ink-mid:  #181c27;
+    --navy:     #1b2640;
+    --gold:     #b8935a;
+    --gold-lt:  #d4aa72;
+    --ember:    #bf4f18;
+    --cream:    #ede9e0;
+    --muted:    #888888;
+    --border:   rgba(184,147,90,0.2);
+    --serif:    'Noto Serif JP','YuMincho','Yu Mincho',serif;
+    --sans:     'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
+    --max:      860px;   /* コンテンツ最大幅 */
+  }
+
+  /* ============================================================
+     リセット・基本
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--ink);
+    color: var(--cream);
+    line-height: 1.85;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { width: 100%; display: block; object-fit: cover; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ============================================================
+     レイアウト核心 — 全セクション共通のラッパー
+     PC: 最大幅860px で中央寄せ
+     スマホ: 左右20pxパディング
+  ============================================================ */
+  .sec {
+    padding: 80px 0;
+    background: var(--ink);
+  }
+  .sec-mid  { background: var(--ink-mid); }
+  .sec-navy { background: var(--navy); }
+  .sec-dark { background: #0b0d13; }
+
+  /* ★ 中央寄せの核心 ★
+     全セクション内のコンテンツはこの.innerで包む */
+  .inner {
+    max-width: var(--max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* ============================================================
+     画像プレースホルダー
+  ============================================================ */
+  .ph {
+    background: linear-gradient(145deg, #1a1a1f, #111);
+    border: 1.5px dashed var(--gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 32px 20px;
+    gap: 10px;
+  }
+  .ph-ico  { font-size: 2.2rem; line-height: 1; }
+  .ph-file {
+    font-family: 'Courier New', monospace;
+    font-size: .72rem;
+    color: var(--gold-lt);
+    background: rgba(184,147,90,.12);
+    padding: 3px 10px;
+    border-radius: 3px;
+    letter-spacing: .04em;
+  }
+  .ph-desc { font-size: .8rem; color: #999; line-height: 1.65; }
+  .ph-prio { font-size: .72rem; color: var(--gold); font-weight: 500; }
+
+  /* ============================================================
+     共通テキスト部品
+  ============================================================ */
+  .eyebrow {
+    display: block;
+    font-family: var(--serif);
+    font-size: .66rem;
+    letter-spacing: .32em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .rule {
+    width: 32px;
+    height: 1.5px;
+    background: var(--gold);
+    margin-bottom: 22px;
+  }
+  .ttl {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3.2vw, 2rem);
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: .04em;
+    margin-bottom: 18px;
+  }
+  .lead {
+    font-size: .9rem;
+    color: #bbb;
+    line-height: 2.1;
+    margin-bottom: 32px;
+    max-width: 560px;
+  }
+
+  /* ============================================================
+     ボタン
+  ============================================================ */
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px 24px;
+    font-size: .88rem;
+    font-weight: 500;
+    letter-spacing: .09em;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    font-family: var(--sans);
+    transition: all .22s ease;
+    text-align: center;
+  }
+  .btn-gold  { background: var(--gold); color: var(--ink); font-weight: 700; }
+  .btn-gold:hover { background: var(--gold-lt); }
+  .btn-ghost { background: transparent; color: var(--cream); border: 1px solid rgba(255,255,255,.38); }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold-lt); }
+
+  /* ============================================================
+     HEADER（固定）
+  ============================================================ */
+  #hd {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 200;
+    background: rgba(15,17,24,.94);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .hd-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 13px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hd-name {
+    font-family: var(--serif);
+    font-size: .92rem;
+    color: var(--gold-lt);
+    letter-spacing: .12em;
+  }
+  .hd-btn a {
+    font-size: .76rem;
+    color: var(--gold-lt);
+    border: 1px solid var(--gold);
+    padding: 7px 18px;
+    border-radius: 20px;
+    letter-spacing: .06em;
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .hd-btn a:hover { background: var(--gold); color: var(--ink); }
+
+  /* ============================================================
+     S1 FIRSTVIEW
+  ============================================================ */
+  #fv {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    padding-top: 52px;
+  }
+  #fv-bg {
+    position: absolute;
+    inset: 0;
+    /*
+    ▼ 写真を入れる時はここを編集 ▼
+    background: url('images/top_main.jpg') center top / cover no-repeat;
+    上記を追加し、下の .ph ブロックを削除してください。
+    */
+  }
+  #fv-bg .ph {
+    height: 100%;
+    min-height: 100svh;
+    border: none;
+  }
+  .fv-ov {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(8,10,16,.96) 0%,
+      rgba(8,10,16,.52) 46%,
+      rgba(8,10,16,.18) 100%
+    );
+    pointer-events: none;
+  }
+  /* FVのテキストエリアも max-width で中央揃え */
+  .fv-body-wrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+  .fv-body {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+  }
+  .fv-label {
+    display: block;
+    font-size: .64rem;
+    letter-spacing: .28em;
+    color: var(--gold);
+    font-family: var(--serif);
+    margin-bottom: 18px;
+  }
+  .fv-catch {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.55;
+    letter-spacing: .06em;
+    margin-bottom: 18px;
+  }
+  .fv-catch em { color: var(--gold-lt); font-style: normal; }
+  .fv-sub {
+    font-size: .88rem;
+    color: #ccc;
+    line-height: 2;
+    margin-bottom: 34px;
+    max-width: 420px;
+  }
+  .fv-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 340px;
+  }
+  .fv-scroll {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    text-align: center;
+  }
+  .fv-scroll span {
+    display: block;
+    font-size: .58rem;
+    letter-spacing: .24em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .fv-bar {
+    width: 1px;
+    height: 36px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    margin: 0 auto;
+    animation: spulse 2.2s ease infinite;
+  }
+  @keyframes spulse {
+    0%   { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(16px); }
+  }
+
+  /* ============================================================
+     S2 CONCEPT
+  ============================================================ */
+  .con-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 32px;
+  }
+  .con-photos .ph { min-height: 160px; }
+
+  /* ============================================================
+     炎バナー（S3A 上部）
+  ============================================================ */
+  .fire-band-wrap { background: linear-gradient(90deg, var(--ember), #7a2900); }
+  .fire-band {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 12px 20px;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* ============================================================
+     S3A 焼き鳥
+  ============================================================ */
+  .assort-ph { margin-bottom: 32px; }
+  .assort-ph .ph { min-height: 220px; }
+
+  .yk-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .yk-card {
+    display: grid;
+    grid-template-columns: 116px 1fr;
+    background: #161616;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .yk-card-ph { position: relative; }
+  .yk-card-ph .ph { height: 100%; min-height: 116px; border: none; }
+  .badge {
+    position: absolute;
+    top: 8px; left: 8px;
+    background: var(--ember);
+    color: #fff;
+    font-size: .6rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    z-index: 2;
+    letter-spacing: .08em;
+  }
+  .yk-card-txt { padding: 14px 16px 16px; }
+  .yk-name {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--gold-lt);
+    font-weight: 700;
+    letter-spacing: .1em;
+    margin-bottom: 4px;
+  }
+  .yk-price { font-size: .8rem; color: var(--gold); margin-bottom: 7px; }
+  .yk-desc  { font-size: .8rem; color: #aaa; line-height: 1.75; }
+
+  .assort-card {
+    background: #161616;
+    border: 1px solid var(--border);
+    padding: 20px 18px;
+    margin-bottom: 28px;
+  }
+  .assort-name {
+    font-family: var(--serif);
+    font-size: .95rem;
+    color: var(--gold-lt);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .assort-desc  { font-size: .82rem; color: #aaa; line-height: 1.8; }
+  .assort-price { font-size: .84rem; color: var(--gold); margin-top: 8px; font-weight: 500; }
+
+  .btn-wrap-center { display: flex; justify-content: center; }
+
+  /* ============================================================
+     S3B 地鶏刺し
+  ============================================================ */
+  .sashi-ph { margin-bottom: 24px; }
+  .sashi-ph .ph { min-height: 220px; }
+  .sashi-menu {
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  .sashi-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border);
+    gap: 12px;
+  }
+  .sashi-row:last-child { border-bottom: none; }
+  .sashi-item { font-size: .85rem; }
+  .sashi-sub  { font-size: .74rem; color: #888; display: block; margin-top: 2px; }
+  .sashi-p    { font-size: .82rem; color: var(--gold); white-space: nowrap; }
+  .sashi-note { font-size: .82rem; color: #aaa; line-height: 1.9; }
+
+  /* ============================================================
+     S3C 一品料理
+  ============================================================ */
+  .ip-items {
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .ip-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border);
+    gap: 14px;
+  }
+  .ip-row:last-child { border-bottom: none; }
+  .ip-name { font-size: .85rem; line-height: 1.5; }
+  .ip-note { font-size: .74rem; color: #888; margin-top: 3px; }
+  .ip-p    { font-size: .82rem; color: var(--gold); white-space: nowrap; }
+  .ip-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .ip-main { grid-column: 1 / -1; }
+  .ip-main .ph { min-height: 200px; }
+  .ip-grid .ph { min-height: 140px; }
+
+  /* ============================================================
+     S3D BEST10
+  ============================================================ */
+  .best-list {
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .best-row {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .best-row:last-child { border-bottom: none; }
+  .best-rank      { font-family: var(--serif); font-size: .95rem; color: var(--gold); font-weight: 700; text-align: center; }
+  .best-rank.top3 { color: var(--gold-lt); font-size: 1.05rem; }
+  .best-name { font-size: .85rem; }
+  .best-p    { font-size: .82rem; color: var(--gold); white-space: nowrap; }
+  .best-ph   { margin-top: 20px; }
+  .best-ph .ph { min-height: 170px; }
+
+  /* ============================================================
+     S3E 鹿児島らしさ
+  ============================================================ */
+  .kago-blocks { margin-bottom: 28px; }
+  .kago-block {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .kago-block:first-child { border-top: 1px solid var(--border); }
+  .kago-label {
+    display: block;
+    font-family: var(--serif);
+    font-size: .74rem;
+    letter-spacing: .18em;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .kago-text  { font-size: .85rem; color: #bbb; line-height: 1.95; }
+  .kago-price { font-size: .8rem; color: var(--gold); margin-top: 8px; }
+  .kago-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .kago-photos .ph { min-height: 150px; }
+
+  /* ============================================================
+     S3F 店主おすすめ
+  ============================================================ */
+  .staff-ph { margin-bottom: 28px; }
+  .staff-ph .ph { min-height: 260px; }
+  .staff-lead {
+    font-family: var(--serif);
+    font-size: .9rem;
+    color: #ccc;
+    line-height: 2.1;
+    margin-bottom: 28px;
+  }
+  .rec-cards { display: flex; flex-direction: column; gap: 14px; }
+  .rec-card {
+    background: #161616;
+    border-left: 3px solid var(--gold);
+    padding: 18px 16px;
+  }
+  .rec-ttl  {
+    font-family: var(--serif);
+    font-size: .9rem;
+    color: var(--gold-lt);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .rec-body { font-size: .81rem; color: #aaa; line-height: 1.85; }
+
+  /* ============================================================
+     S4 コース
+  ============================================================ */
+  .course-ph { margin-bottom: 24px; }
+  .course-ph .ph { min-height: 160px; }
+  .course-card {
+    background: #161616;
+    border: 1px solid var(--border);
+    padding: 20px 18px;
+    margin-bottom: 14px;
+  }
+  .course-name  {
+    font-family: var(--serif);
+    font-size: .95rem;
+    color: var(--gold-lt);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .course-price { font-size: .8rem; color: var(--gold); margin-bottom: 10px; }
+  .course-desc  { font-size: .82rem; color: #aaa; line-height: 1.8; }
+  .shime-head {
+    font-family: var(--serif);
+    font-size: .86rem;
+    color: var(--gold-lt);
+    letter-spacing: .08em;
+    margin-bottom: 8px;
+  }
+  .shime-note {
+    font-size: .78rem;
+    color: #888;
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+  .shime-list { border: 1px solid var(--border); margin-bottom: 28px; }
+  .shime-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .shime-row:last-child { border-bottom: none; }
+  .shime-name { font-size: .83rem; }
+  .shime-p    { font-size: .81rem; color: var(--gold); }
+
+  /* ============================================================
+     S5 空間
+  ============================================================ */
+  .sp-hero { margin-bottom: 24px; }
+  .sp-hero .ph { min-height: 240px; }
+  .sp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .sp-grid .ph { min-height: 145px; }
+  .sp-seat {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .sp-seat:first-of-type { border-top: 1px solid var(--border); }
+  .sp-seat-label {
+    font-family: var(--serif);
+    font-size: .88rem;
+    color: var(--gold-lt);
+    letter-spacing: .1em;
+    margin-bottom: 8px;
+  }
+  .sp-seat-desc { font-size: .83rem; color: #aaa; line-height: 1.85; }
+  .sp-fire { margin-top: 24px; }
+  .sp-fire .ph { min-height: 200px; }
+
+  /* ============================================================
+     S6 シーン
+  ============================================================ */
+  .scene-list {
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .scene-item {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    padding: 18px 16px;
+    border-bottom: 1px solid var(--border);
+    gap: 4px;
+  }
+  .scene-item:last-child { border-bottom: none; }
+  .scene-ico  { font-size: 1.3rem; line-height: 1.7; }
+  .scene-name { font-size: .87rem; color: var(--gold-lt); font-weight: 500; margin-bottom: 5px; }
+  .scene-desc { font-size: .81rem; color: #999; line-height: 1.75; }
+  .scene-ph .ph { min-height: 200px; }
+
+  /* ============================================================
+     S7 店舗情報
+  ============================================================ */
+  .info-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .info-photos .ph { min-height: 140px; }
+  .info-tbl { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+  .info-tbl tr { border-bottom: 1px solid var(--border); }
+  .info-tbl th {
+    text-align: left;
+    padding: 14px 0;
+    font-size: .76rem;
+    color: var(--gold-lt);
+    width: 90px;
+    vertical-align: top;
+    font-weight: 500;
+  }
+  .info-tbl td {
+    padding: 14px 0;
+    font-size: .84rem;
+    color: #ccc;
+    line-height: 1.8;
+  }
+  .info-note { font-size: .73rem; color: var(--muted); margin-top: 3px; }
+  .map-area {
+    border: 1.5px dashed var(--gold);
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+  .map-ico   { font-size: 1.9rem; }
+  .map-label { font-size: .81rem; color: #999; line-height: 1.75; }
+  .map-note  { font-size: .73rem; color: var(--gold); }
+  .info-access {
+    font-size: .83rem;
+    color: #999;
+    line-height: 1.95;
+    margin-bottom: 24px;
+  }
+  .info-btns { display: flex; flex-direction: column; gap: 12px; }
+
+  /* ============================================================
+     S8 CTA
+  ============================================================ */
+  #cta {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+    background: linear-gradient(160deg, #090d1a 0%, var(--navy) 100%);
+    text-align: center;
+  }
+  #cta::before {
+    content: '彩';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--serif);
+    font-size: 20rem;
+    color: rgba(184,147,90,.035);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .cta-inner { position: relative; }
+  .cta-label {
+    display: block;
+    font-size: .65rem;
+    letter-spacing: .3em;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .cta-ttl {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 700;
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+  .cta-body {
+    font-size: .88rem;
+    color: #bbb;
+    line-height: 2.1;
+    margin-bottom: 12px;
+  }
+  .cta-hours {
+    font-size: .78rem;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+  .cta-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
+  }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  #ft { background: #080a0f; padding: 40px 0 28px; text-align: center; }
+  .ft-logo  { font-family: var(--serif); font-size: 1rem; color: var(--gold-lt); letter-spacing: .16em; margin-bottom: 4px; }
+  .ft-roman { font-size: .67rem; color: #333; letter-spacing: .14em; margin-bottom: 22px; }
+  .ft-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+  }
+  .ft-links a {
+    font-size: .75rem;
+    color: #555;
+    padding: 5px 14px;
+    border: 1px solid #222;
+    border-radius: 20px;
+    letter-spacing: .05em;
+    transition: all .2s;
+  }
+  .ft-links a:hover { color: var(--gold-lt); border-color: var(--gold); }
+  .ft-copy { font-size: .61rem; color: #2a2a2a; letter-spacing: .08em; }
+
+  /* ============================================================
+     PC レイアウト強化（640px以上）
+  ============================================================ */
+  @media (min-width: 640px) {
+    .fv-btns { flex-direction: row; max-width: 440px; }
+    .fv-btns .btn { flex: 1; }
+
+    /* 焼き鳥カード: PC では横一列 */
+    .yk-cards { grid-template-columns: 1fr 1fr 1fr; }
+    .yk-card  { grid-template-columns: 1fr; }
+    .yk-card-ph .ph { min-height: 160px; }
+
+    /* 店主おすすめ: PC では写真+テキスト横並び */
+    .staff-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .staff-ph { margin-bottom: 0; }
+
+    /* CTA ボタン: PC では横並び */
+    .cta-btns { flex-direction: row; justify-content: center; }
+    .cta-btns .btn { max-width: 260px; }
+
+    /* 店舗情報ボタン: PC では横並び */
+    .info-btns { flex-direction: row; }
+    .info-btns .btn { flex: 1; }
+  }
+
+  @media (min-width: 860px) {
+    /* BEST10: PC では2カラム */
+    .best-row { font-size: 1rem; }
+  }
+
+  /* アクセシビリティ */
+  @media (prefers-reduced-motion: reduce) { .fv-bar { animation: none; } }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header id="hd">
+  <div class="hd-inner">
+    <div class="hd-name">焼鳥酒肴 彩り</div>
+    <div class="hd-btn"><a href="tel:08052509872">📞 ご予約</a></div>
+  </div>
+</header>
+
+
+<!-- ============================================================
+     S1 FIRSTVIEW
+============================================================ -->
+<section id="fv">
+  <div id="fv-bg">
+    <!--
+    ▼ 写真の入れ方 ▼
+    1. このファイルと同じ場所に「images」フォルダを作る
+    2. 撮影した写真を「top_main.jpg」という名前で保存する
+    3. この .ph ブロック全体を削除する
+    4. #fv-bg の style に以下を追加:
+       background: url('images/top_main.jpg') center top / cover no-repeat;
+    -->
+    <div class="ph">
+      <div class="ph-ico">🔥</div>
+      <div class="ph-file">images/top_main.jpg</div>
+      <div class="ph-desc">
+        【ファーストビュー背景写真】<br>
+        店内全体・炭火の光・カウンター全景<br>
+        暗め露出・縦長・全画面
+      </div>
+      <div class="ph-prio">★★★ 最優先で撮影してください</div>
+    </div>
+  </div>
+  <div class="fv-ov"></div>
+  <div class="fv-body-wrap">
+    <div class="fv-body">
+      <span class="fv-label">焼鳥酒肴 IRODORI / 鹿児島・唐湊町</span>
+      <h1 class="fv-catch">
+        二階の扉を開けると、<br><em>大人の夜が</em>始まる。
+      </h1>
+      <p class="fv-sub">
+        本格炭火焼き鳥と自家製料理。<br>
+        知る人だけが通う、隠れ家の一軒。
+      </p>
+      <div class="fv-btns">
+        <a href="tel:08052509872" class="btn btn-gold">📞 電話で予約する</a>
+        <a href="https://www.instagram.com/yakitori_kagoshima" target="_blank" rel="noopener" class="btn btn-ghost">📸 Instagramを見る</a>
+      </div>
+    </div>
+  </div>
+  <div class="fv-scroll"><span>SCROLL</span><div class="fv-bar"></div></div>
+</section>
+
+
+<!-- ============================================================
+     S2 CONCEPT
+============================================================ -->
+<section class="sec sec-navy" id="concept">
+  <div class="inner">
+    <span class="eyebrow">concept</span>
+    <div class="rule"></div>
+    <h2 class="ttl">ここは、大人のための<br>焼き鳥空間。</h2>
+    <p class="lead">
+      鹿児島市唐湊町、ビルの2階。<br>
+      階段を上がると、日常の喧騒が遠くなります。<br><br>
+      炭火にこだわった本格焼き鳥と、<br>
+      中村夫婦が丁寧に仕込んだ自家製料理。<br><br>
+      静かな灯りの下で、ゆっくりと杯を傾けてください。<br><br>
+      一人でふらっと。大切な人と、静かに。<br>
+      どんな夜にも寄り添える場所が、ここにあります。
+    </p>
+    <div class="con-photos">
+      <div class="ph">
+        <div class="ph-ico">🪑</div>
+        <div class="ph-file">images/concept_counter.jpg</div>
+        <div class="ph-desc">カウンター席<br>木の質感・暖かい照明</div>
+        <div class="ph-prio">★★★ 必須</div>
+      </div>
+      <div class="ph">
+        <div class="ph-ico">🍽</div>
+        <div class="ph-file">images/concept_table.jpg</div>
+        <div class="ph-desc">テーブル席<br>落ち着いた全体感</div>
+        <div class="ph-prio">★★ 推奨</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S3A 炭火焼き鳥
+============================================================ -->
+<div class="fire-band-wrap">
+  <div class="fire-band">🔥 炭火本格焼き鳥 — 看板メニュー</div>
+</div>
+<section class="sec" id="yakitori">
+  <div class="inner">
+    <span class="eyebrow">signature yakitori</span>
+    <div class="rule"></div>
+    <h2 class="ttl">炭火が生む、<br>ここだけの味。</h2>
+    <p class="lead">
+      炭火入れにこだわった火加減で、素材の旨みを最大限に引き出す。<br>
+      丁寧に焼き上げた一本が、今夜の特別をつくります。
+    </p>
+    <div class="assort-ph">
+      <div class="ph">
+        <div class="ph-ico">🪵</div>
+        <div class="ph-file">images/menu_assort.jpg</div>
+        <div class="ph-desc">
+          【盛り合わせ全体写真】複数の串を並べた横長の写真。<br>
+          炭火・煙・焼き上がりの瞬間が理想。木製の器に乗せると高級感UP。
+        </div>
+        <div class="ph-prio">★★★ 最優先 — 最も食欲を引き出す写真です</div>
+      </div>
+    </div>
+    <div class="yk-cards">
+      <div class="yk-card">
+        <div class="yk-card-ph">
+          <span class="badge">人気 No.1</span>
+          <div class="ph">
+            <div class="ph-ico">🍢</div>
+            <div class="ph-file">images/lever.jpg</div>
+            <div class="ph-desc">レバーアップ<br>炭火・照り感</div>
+            <div class="ph-prio">★★★ 必須</div>
+          </div>
+        </div>
+        <div class="yk-card-txt">
+          <div class="yk-name">レバー</div>
+          <div class="yk-price">250円</div>
+          <p class="yk-desc">口の中でとろける食感と、炭火ならではの香ばしさ。鮮度と火入れにこだわった、彩りを代表する一本。</p>
+        </div>
+      </div>
+      <div class="yk-card">
+        <div class="yk-card-ph">
+          <div class="ph">
+            <div class="ph-ico">🍗</div>
+            <div class="ph-file">images/momo.jpg</div>
+            <div class="ph-desc">モモ串アップ<br>ジューシー感</div>
+            <div class="ph-prio">★★★ 必須</div>
+          </div>
+        </div>
+        <div class="yk-card-txt">
+          <div class="yk-name">モモ</div>
+          <div class="yk-price">300円</div>
+          <p class="yk-desc">ジューシーな旨みが凝縮。炭火でじっくり焼き上げた、シンプルで奥深い味わい。</p>
+        </div>
+      </div>
+      <div class="yk-card">
+        <div class="yk-card-ph">
+          <div class="ph">
+            <div class="ph-ico">🔥</div>
+            <div class="ph-file">images/negima.jpg</div>
+            <div class="ph-desc">ネギマ串アップ<br>タレの照り</div>
+            <div class="ph-prio">★★ 推奨</div>
+          </div>
+        </div>
+        <div class="yk-card-txt">
+          <div class="yk-name">ネギマ</div>
+          <div class="yk-price">300円</div>
+          <p class="yk-desc">自家製だれと炭火が織りなす、何本でも食べたくなる王道の一本。</p>
+        </div>
+      </div>
+    </div>
+    <div class="assort-card">
+      <div class="assort-name">🔥 おすすめ盛り合わせ（5本）</div>
+      <p class="assort-desc">はじめての方に、まずおすすめしたい彩りの入門セット。その日の仕入れに合わせた店主厳選の串盛りです。</p>
+      <div class="assort-price">1,250円</div>
+    </div>
+    <div class="btn-wrap-center">
+      <a href="https://www.instagram.com/yakitori_kagoshima" target="_blank" rel="noopener" class="btn btn-ghost">📸 メニューをもっと見る（Instagram）</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S3B 地鶏刺し
+============================================================ -->
+<section class="sec sec-mid" id="sashi">
+  <div class="inner">
+    <span class="eyebrow">jidori sashimi</span>
+    <div class="rule"></div>
+    <h2 class="ttl">鹿児島の地鶏を、<br>刺しで。</h2>
+    <p class="lead">新鮮な地鶏だからこそ味わえる、生の旨み。<br>ここでしか食べられない一皿があります。</p>
+    <div class="sashi-ph">
+      <div class="ph">
+        <div class="ph-ico">🐓</div>
+        <div class="ph-file">images/jidori_sashi.jpg</div>
+        <div class="ph-desc">
+          【地鶏刺し・盛り付け写真】器の上に美しく盛り付けた状態で撮影。<br>
+          鮮度感・赤みが伝わる明るめの照明。薬味も添えて。
+        </div>
+        <div class="ph-prio">★★★ 必須 — 鹿児島らしさを最も伝える写真です</div>
+      </div>
+    </div>
+    <div class="sashi-menu">
+      <div class="sashi-row">
+        <div class="sashi-item">鶏刺し（モモ）</div>
+        <div class="sashi-p">770円</div>
+      </div>
+      <div class="sashi-row">
+        <div class="sashi-item">
+          鶏刺し二種盛り
+          <span class="sashi-sub">モモ・ムネ</span>
+        </div>
+        <div class="sashi-p">950円</div>
+      </div>
+      <div class="sashi-row">
+        <div class="sashi-item">
+          炙り鶏刺し二種盛り
+          <span class="sashi-sub">モモ・ムネ</span>
+        </div>
+        <div class="sashi-p">980円</div>
+      </div>
+    </div>
+    <p class="sashi-note">
+      炙りは、表面だけをさっと炙った半生の旨みが楽しめます。<br>
+      鹿児島ならではの味を、ぜひ体験してください。
+    </p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S3C 自家製一品料理
+============================================================ -->
+<section class="sec" id="ippin">
+  <div class="inner">
+    <span class="eyebrow">original dishes</span>
+    <div class="rule"></div>
+    <h2 class="ttl">焼き鳥だけじゃない。<br>手間をかけた、自家製の一皿。</h2>
+    <p class="lead">「ここでしか食べられない」と言っていただける味を、<br>二人で毎日つくっています。</p>
+    <div class="ip-items">
+      <div class="ip-row">
+        <div><div class="ip-name">地鶏の炭火焼</div><div class="ip-note">鹿児島の地鶏を炭火で。素材が主役の一皿。</div></div>
+        <div class="ip-p">1,050円</div>
+      </div>
+      <div class="ip-row">
+        <div><div class="ip-name">せせりの柚子ダレ炒め</div><div class="ip-note">柚子の香りと炭火の旨みが重なる自家製の味。</div></div>
+        <div class="ip-p">900円</div>
+      </div>
+      <div class="ip-row">
+        <div><div class="ip-name">トロホッケの炭火焼</div><div class="ip-note">炭火ならではの香ばしさで引き出す旨み。</div></div>
+        <div class="ip-p">980円</div>
+      </div>
+      <div class="ip-row">
+        <div><div class="ip-name">エビのアヒージョ</div><div class="ip-note">お酒が進む、人気の一品。</div></div>
+        <div class="ip-p">900円</div>
+      </div>
+      <div class="ip-row">
+        <div><div class="ip-name">和牛ステーキ</div><div class="ip-note">特別な夜に、とっておきの一品。</div></div>
+        <div class="ip-p">1,800円</div>
+      </div>
+    </div>
+    <div class="ip-grid">
+      <div class="ph ip-main">
+        <div class="ph-ico">🥘</div>
+        <div class="ph-file">images/food_ippin_01.jpg</div>
+        <div class="ph-desc">【自家製一品料理・メイン写真】イチオシ一品を大きめに。器・盛り付けの丁寧さが伝わると◎</div>
+        <div class="ph-prio">★★★ 必須</div>
+      </div>
+      <div class="ph">
+        <div class="ph-ico">🥩</div>
+        <div class="ph-file">images/food_ippin_02.jpg</div>
+        <div class="ph-desc">和牛ステーキ<br>または炭火焼</div>
+        <div class="ph-prio">★★ 推奨</div>
+      </div>
+      <div class="ph">
+        <div class="ph-ico">🦐</div>
+        <div class="ph-file">images/food_ippin_03.jpg</div>
+        <div class="ph-desc">エビのアヒージョ<br>または映えメニュー</div>
+        <div class="ph-prio">★★ 推奨</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S3D 人気BEST10
+============================================================ -->
+<section class="sec sec-mid" id="best10">
+  <div class="inner">
+    <span class="eyebrow">popular menu</span>
+    <div class="rule"></div>
+    <h2 class="ttl">はじめての方へ。<br>まずはこの10品から。</h2>
+    <p class="lead">何を頼もうか迷ったら、こちらを参考にしてください。</p>
+    <div class="best-list">
+      <div class="best-row"><div class="best-rank top3">1</div><div class="best-name">レバー</div><div class="best-p">250円</div></div>
+      <div class="best-row"><div class="best-rank top3">2</div><div class="best-name">モモ</div><div class="best-p">300円</div></div>
+      <div class="best-row"><div class="best-rank top3">3</div><div class="best-name">地鶏刺し（モモ）</div><div class="best-p">770円</div></div>
+      <div class="best-row"><div class="best-rank">4</div><div class="best-name">地鶏の炭火焼</div><div class="best-p">1,050円</div></div>
+      <div class="best-row"><div class="best-rank">5</div><div class="best-name">ネギマ</div><div class="best-p">300円</div></div>
+      <div class="best-row"><div class="best-rank">6</div><div class="best-name">おすすめ盛り合わせ（5本）</div><div class="best-p">1,250円</div></div>
+      <div class="best-row"><div class="best-rank">7</div><div class="best-name">せせりの柚子ダレ炒め</div><div class="best-p">900円</div></div>
+      <div class="best-row"><div class="best-rank">8</div><div class="best-name">和牛ステーキ</div><div class="best-p">1,800円</div></div>
+      <div class="best-row"><div class="best-rank">9</div><div class="best-name">炙り鶏刺し二種盛り</div><div class="best-p">980円</div></div>
+      <div class="best-row"><div class="best-rank">10</div><div class="best-name">自家製鶏スープ</div><div class="best-p">350円</div></div>
+    </div>
+    <div class="best-ph">
+      <div class="ph">
+        <div class="ph-ico">📸</div>
+        <div class="ph-file">images/best10_spread.jpg</div>
+        <div class="ph-desc">人気料理を並べたテーブル全体の俯瞰写真。串・地鶏刺し・一品を一緒に並べて賑やかに。</div>
+        <div class="ph-prio">★★ 推奨</div>
+      </div>
+    </div>
+    <p style="font-size:.72rem;color:#555;margin-top:14px;text-align:center">※ランキングは店主のおすすめ順です。季節により変動することがあります。</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S3E 鹿児島らしさ
+============================================================ -->
+<section class="sec sec-navy" id="kagoshima">
+  <div class="inner">
+    <span class="eyebrow">kagoshima</span>
+    <div class="rule"></div>
+    <h2 class="ttl">鹿児島を、<br>一皿と一杯で感じる夜。</h2>
+    <div class="kago-blocks">
+      <div class="kago-block">
+        <span class="kago-label">— 地鶏刺し —</span>
+        <p class="kago-text">鹿児島でしか味わえない、新鮮な地鶏を刺しで。<br>この味を目当てに通い続けるお客様がいます。</p>
+      </div>
+      <div class="kago-block">
+        <span class="kago-label">— 鹿児島焼酎 —</span>
+        <p class="kago-text">
+          三岳・だいやめ・響　齋藤一心・宮ヶ浜人<br><br>
+          炭火焼き鳥に合う、通好みの銘柄を揃えています。<br>
+          焼き鳥と焼酎。鹿児島の夜の、本来の姿。
+        </p>
+      </div>
+      <div class="kago-block">
+        <span class="kago-label">— 奄美小みかんサワー —</span>
+        <p class="kago-text">奄美の小みかんを使った、ここだけの一杯。<br>爽やかな香りとやさしい甘みをお楽しみください。</p>
+        <p class="kago-price">600円</p>
+      </div>
+      <div class="kago-block">
+        <span class="kago-label">— 知覧茶の〆 —</span>
+        <p class="kago-text">知覧の名店のお茶で仕込んだ自家製鶏スープ。<br>今夜の締めくくりにも、鹿児島を感じてください。</p>
+        <p class="kago-price">350円</p>
+      </div>
+    </div>
+    <div class="kago-photos">
+      <div class="ph">
+        <div class="ph-ico">🍶</div>
+        <div class="ph-file">images/shochu_bottle.jpg</div>
+        <div class="ph-desc">焼酎ボトル<br>銘柄ラベルが見える角度</div>
+        <div class="ph-prio">★★ 推奨</div>
+      </div>
+      <div class="ph">
+        <div class="ph-ico">🍊</div>
+        <div class="ph-file">images/amami_sour.jpg</div>
+        <div class="ph-desc">奄美サワーのグラス<br>色彩が伝わる明るめで</div>
+        <div class="ph-prio">★★ 推奨</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S3F 店主おすすめ
+============================================================ -->
+<section class="sec sec-dark" id="recommend">
+  <div class="inner">
+    <span class="eyebrow">chef's recommend</span>
+    <div class="rule"></div>
+    <h2 class="ttl">中村夫婦からの、<br>一言。</h2>
+    <div class="staff-layout">
+      <div class="staff-ph">
+        <div class="ph">
+          <div class="ph-ico">👨‍🍳</div>
+          <div class="ph-file">images/staff_main.jpg</div>
+          <div class="ph-desc">
+            【中村ご夫婦の写真】カウンター越し・エプロン姿・自然な笑顔。<br>
+            夫婦そろった写真が理想。温かみが伝わるライティングで。
+          </div>
+          <div class="ph-prio">★★★ 必須 — お店の人柄と温かさを伝える重要写真</div>
+        </div>
+      </div>
+      <div>
+        <p class="staff-lead">
+          毎晩、炭火の前に立ちながら考えることがあります。<br><br>
+          「今夜も、来てよかったと思っていただけるだろうか」<br><br>
+          そのために、仕込みも火入れも手を抜かない。<br>
+          それが、彩りのすべてです。
+        </p>
+        <div class="rec-cards">
+          <div class="rec-card">
+            <div class="rec-ttl">🔥 レバー</div>
+            <p class="rec-body">「鮮度と火入れにこだわった、彩りを代表する一本です。まず最初にどうぞ」</p>
+          </div>
+          <div class="rec-card">
+            <div class="rec-ttl">🍳 せせりの柚子ダレ炒め</div>
+            <p class="rec-body">「柚子の香りと炭火の旨みが重なる、自家製の一皿。日によって味が変わります」</p>
+          </div>
+          <div class="rec-card">
+            <div class="rec-ttl">🥃 天空の杜シングルモルト</div>
+            <p class="rec-body">「焼き鳥との意外な相性をぜひ体験していただきたい一杯です」</p>
+          </div>
+          <div class="rec-card">
+            <div class="rec-ttl">🍵 自家製鶏スープ</div>
+            <p class="rec-body">「知覧茶で仕込んだ今夜の締めくくり。ほっとしていただけると思います」</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S4 コース
+============================================================ -->
+<section class="sec sec-mid" id="course">
+  <div class="inner">
+    <span class="eyebrow">course</span>
+    <div class="rule"></div>
+    <h2 class="ttl">今夜の一本を、<br>おまかせください。</h2>
+    <p class="lead">
+      何を頼もうか迷ったら、おまかせにしてください。<br>
+      その日の仕入れに合わせた串盛りをご用意します。<br>
+      最後の〆まで、手を抜きません。
+    </p>
+    <div class="course-ph">
+      <div class="ph">
+        <div class="ph-ico">📋</div>
+        <div class="ph-file">images/menu_book.jpg</div>
+        <div class="ph-desc">手書きメニュー or お品書きをテーブルに置いて撮影。雰囲気が伝わるアングルで。</div>
+        <div class="ph-prio">★ あると良い</div>
+      </div>
+    </div>
+    <div class="course-card">
+      <div class="course-name">🔥 焼き鳥おすすめ盛り合わせ</div>
+      <div class="course-price">5本 1,250円</div>
+      <p class="course-desc">その日の仕入れに合わせた店主厳選の串盛り。炭火焼き鳥の醍醐味をまるごとお楽しみください。</p>
+    </div>
+    <p class="shime-head">🍵 一夜を締めくくる〆もの</p>
+    <p class="shime-note">知覧の名店のお茶を使った〆もので、今夜を丁寧に終える。</p>
+    <div class="shime-list">
+      <div class="shime-row"><span class="shime-name">自家製鶏スープ</span><span class="shime-p">350円</span></div>
+      <div class="shime-row"><span class="shime-name">鶏そば</span><span class="shime-p">500円</span></div>
+      <div class="shime-row"><span class="shime-name">鶏つけ麺</span><span class="shime-p">500円</span></div>
+      <div class="shime-row"><span class="shime-name">炙りおにぎり（2個）</span><span class="shime-p">400円</span></div>
+    </div>
+    <div class="btn-wrap-center">
+      <a href="tel:08052509872" class="btn btn-ghost">📞 コースについて問い合わせる</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S5 空間
+============================================================ -->
+<section class="sec" id="space">
+  <div class="inner">
+    <span class="eyebrow">space</span>
+    <div class="rule"></div>
+    <h2 class="ttl">2階に広がる、<br>落ち着きの空間。</h2>
+    <p class="lead">
+      ビルの2階。扉を開けた瞬間から、別世界が広がります。<br><br>
+      炭火の橙色の光、静かに流れる時間、<br>
+      中村夫婦の温かなもてなし。<br><br>
+      「知っている人だけが通う店」——<br>
+      そんな特別感が、ここにはあります。
+    </p>
+    <div class="sp-hero">
+      <div class="ph">
+        <div class="ph-ico">🏮</div>
+        <div class="ph-file">images/space_wide.jpg</div>
+        <div class="ph-desc">【店内広角写真】カウンター＋テーブル席が収まる構図。夜の照明・和モダンな雰囲気を最大に。</div>
+        <div class="ph-prio">★★★ 必須</div>
+      </div>
+    </div>
+    <div class="sp-grid">
+      <div class="ph">
+        <div class="ph-ico">🪑</div>
+        <div class="ph-file">images/space_counter.jpg</div>
+        <div class="ph-desc">カウンター席アップ<br>木目・照明の温かさ</div>
+        <div class="ph-prio">★★ 推奨</div>
+      </div>
+      <div class="ph">
+        <div class="ph-ico">🍽</div>
+        <div class="ph-file">images/space_table.jpg</div>
+        <div class="ph-desc">テーブル席アップ<br>落ち着いた雰囲気</div>
+        <div class="ph-prio">★★ 推奨</div>
+      </div>
+    </div>
+    <div class="sp-seat">
+      <div class="sp-seat-label">── カウンター席</div>
+      <p class="sp-seat-desc">一人でも気兼ねなく。目の前で焼き上がる串と、夫婦との会話も彩りの楽しみです。</p>
+    </div>
+    <div class="sp-seat">
+      <div class="sp-seat-label">── テーブル席</div>
+      <p class="sp-seat-desc">2〜6名様まで対応。記念日、接待、仲間との食事にもゆったりとお使いください。</p>
+    </div>
+    <div class="sp-seat">
+      <div class="sp-seat-label">── 炭火の前に立つ</div>
+      <p class="sp-seat-desc">毎晩、炭火の前に立ち一本一本を丁寧に焼き上げる。その姿と香りが、彩りの夜をつくっています。</p>
+    </div>
+    <div class="sp-fire">
+      <div class="ph">
+        <div class="ph-ico">🔥</div>
+        <div class="ph-file">images/charcoal_fire.jpg</div>
+        <div class="ph-desc">【炭火・焼き場の写真】炎や煙が見える「仕事中」の様子。職人感・本格感が伝わる構図で。</div>
+        <div class="ph-prio">★★★ 必須 — 炭火へのこだわりを伝える重要写真</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S6 利用シーン
+============================================================ -->
+<section class="sec sec-mid" id="scene">
+  <div class="inner">
+    <span class="eyebrow">scene</span>
+    <div class="rule"></div>
+    <h2 class="ttl">どんな夜にも、<br>彩りはある。</h2>
+    <div class="scene-list">
+      <div class="scene-item">
+        <div class="scene-ico">🍺</div>
+        <div><div class="scene-name">仕事帰りの一人飲み</div><p class="scene-desc">カウンターに座って、静かに一杯。疲れた体に、炭火の焼き鳥がじんわりと染みます。</p></div>
+      </div>
+      <div class="scene-item">
+        <div class="scene-ico">👫</div>
+        <div><div class="scene-name">カップル・記念日</div><p class="scene-desc">落ち着いた空間で、大切な人と特別な夜を。隠れ家の雰囲気がその日をより記念日らしくします。</p></div>
+      </div>
+      <div class="scene-item">
+        <div class="scene-ico">🥂</div>
+        <div><div class="scene-name">接待・ビジネス会食</div><p class="scene-desc">上質な料理と静かな空間で、大切なお客様をおもてなし。大人の会食にふさわしい一軒です。</p></div>
+      </div>
+      <div class="scene-item">
+        <div class="scene-ico">👨‍👩‍👧</div>
+        <div><div class="scene-name">家族・グループ</div><p class="scene-desc">テーブル席で、賑やかな食卓もしっかり対応。焼き鳥を囲む時間が、会話を豊かにしてくれます。</p></div>
+      </div>
+      <div class="scene-item">
+        <div class="scene-ico">✈️</div>
+        <div><div class="scene-name">観光のお客様</div><p class="scene-desc">地鶏刺し、鹿児島焼酎、知覧茶の〆まで。ガイドブックには載っていない、本物の鹿児島がここにあります。</p></div>
+      </div>
+    </div>
+    <div class="scene-ph">
+      <div class="ph">
+        <div class="ph-ico">🌃</div>
+        <div class="ph-file">images/scene_main.jpg</div>
+        <div class="ph-desc">カウンターで一人ゆったり飲む様子、または料理とグラスのテーブル上の構図。<br>※お客様が映る場合は必ず許可を取ってください。</div>
+        <div class="ph-prio">★★ 推奨（お客様掲載は許可確認必須）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S7 店舗情報
+============================================================ -->
+<section class="sec sec-navy" id="info">
+  <div class="inner">
+    <span class="eyebrow">access &amp; info</span>
+    <div class="rule"></div>
+    <h2 class="ttl">焼鳥酒肴 彩り</h2>
+    <p style="font-size:.77rem;color:var(--muted);letter-spacing:.12em;margin-bottom:26px">やきとりしゅこう　いろどり</p>
+    <div class="info-photos">
+      <div class="ph">
+        <div class="ph-ico">🏢</div>
+        <div class="ph-file">images/exterior_01.jpg</div>
+        <div class="ph-desc">ビル外観・夜間<br>看板が見える角度</div>
+        <div class="ph-prio">★★ 推奨</div>
+      </div>
+      <div class="ph">
+        <div class="ph-ico">🚪</div>
+        <div class="ph-file">images/exterior_stairs.jpg</div>
+        <div class="ph-desc">2階への階段・扉<br>「隠れ家感」が伝わる構図</div>
+        <div class="ph-prio">★★ 推奨</div>
+      </div>
+    </div>
+    <table class="info-tbl">
+      <tr><th>📍 住所</th><td>鹿児島県鹿児島市<br>唐湊町1-2 西岡ビル 202</td></tr>
+      <tr><th>🕕 営業</th><td>18:00 〜 23:00</td></tr>
+      <tr>
+        <th>🗓 定休日</th>
+        <td>日曜日・月曜日<p class="info-note">※月曜が祝日の場合は日曜営業・月曜休み</p></td>
+      </tr>
+      <tr><th>📞 電話</th><td><a href="tel:08052509872" style="color:var(--gold-lt)">080-5250-9872</a></td></tr>
+      <tr><th>💳 支払い</th><td>現金・クレジットカード<br>各種QR決済</td></tr>
+      <tr><th>🚗 駐車場</th><td>なし</td></tr>
+    </table>
+    <!--
+    ▼ Googleマップの入れ方 ▼
+    1. Googleマップで「焼鳥酒肴 彩り」を検索
+    2. 「共有」→「地図を埋め込む」→ iframeコードをコピー
+    3. 下の .map-area ブロック全体を削除し、iframeを貼り付ける
+       例: <iframe src="https://www.google.com/maps/embed?..."
+            width="100%" height="220" style="border:0"
+            allowfullscreen="" loading="lazy"></iframe>
+    -->
+    <div class="map-area">
+      <div class="map-ico">🗺</div>
+      <p class="map-label">
+        【Googleマップ 埋め込みエリア】<br>
+        Googleマップで店舗を検索し<br>
+        「共有 → 地図を埋め込む」の<br>
+        iframeコードをここに貼り付けてください。
+      </p>
+      <p class="map-note">コードが届き次第すぐ差し込めます</p>
+    </div>
+    <p class="info-access">
+      唐湊町の西岡ビル2階です。<br>
+      1階入口から階段でお上がりください。<br>
+      初めてのお客様はお気軽にお電話ください。
+    </p>
+    <div class="info-btns">
+      <a href="https://maps.app.goo.gl/2HJGEjT7YhoM5h5X6" target="_blank" rel="noopener" class="btn btn-ghost">🗺 Googleマップで確認する</a>
+      <a href="tel:08052509872" class="btn btn-gold">📞 電話で予約する</a>
+      <a href="https://www.instagram.com/yakitori_kagoshima" target="_blank" rel="noopener" class="btn btn-ghost">📸 Instagramをフォロー</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     S8 CTA
+============================================================ -->
+<section id="cta">
+  <div class="inner cta-inner">
+    <span class="cta-label">reservation</span>
+    <h2 class="cta-ttl">今夜、二階の扉を<br>開けてみませんか。</h2>
+    <p class="cta-body">
+      炭火の焼き鳥と、お気に入りの一杯。<br>
+      中村夫婦が心を込めてお迎えします。<br><br>
+      特別な夜も、何気ない夜も。<br>
+      彩りで、ゆっくりと。
+    </p>
+    <p class="cta-hours">営業時間：18:00 〜 23:00　定休日：日曜・月曜</p>
+    <div class="cta-btns">
+      <a href="tel:08052509872" class="btn btn-gold">📞 今すぐ予約する</a>
+      <a href="https://www.instagram.com/yakitori_kagoshima" target="_blank" rel="noopener" class="btn btn-ghost">📸 Instagramで雰囲気を見る</a>
+      <a href="https://maps.app.goo.gl/2HJGEjT7YhoM5h5X6" target="_blank" rel="noopener" class="btn btn-ghost">🗺 アクセスを確認する</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer id="ft">
+  <div class="inner">
+    <div class="ft-logo">焼鳥酒肴 彩り</div>
+    <div class="ft-roman">YAKITORI SHUKO IRODORI</div>
+    <div class="ft-links">
+      <a href="https://www.instagram.com/yakitori_kagoshima" target="_blank" rel="noopener">Instagram</a>
+      <a href="tel:08052509872">📞 080-5250-9872</a>
+      <a href="https://maps.app.goo.gl/2HJGEjT7YhoM5h5X6" target="_blank" rel="noopener">アクセス</a>
+    </div>
+    <p class="ft-copy">© 2025 焼鳥酒肴 彩り. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
