@@ -124,13 +124,27 @@
     position: relative; min-height: 100svh; display: flex;
     align-items: flex-end; overflow: hidden; padding-top: 52px;
   }
-  #fv-bg { position: absolute; inset: 0; background: #111; }
+  #fv-bg { position: absolute; inset: 0; background: #111; overflow: hidden; }
   .fv-slide {
     position: absolute; inset: 0;
-    background-size: cover; background-position: center center;
-    opacity: 0; transition: opacity 1.8s ease-in-out; z-index: 1;
+    overflow: hidden;
+    transform: translateX(100%);
+    transition: transform .85s cubic-bezier(.65,0,.35,1);
+    z-index: 1;
   }
-  .fv-slide.active { opacity: 1; }
+  .fv-slide.active { transform: translateX(0); z-index: 2; }
+  .fv-slide.prev   { transform: translateX(-100%); z-index: 2; }
+  .fv-slide-bg {
+    position: absolute;
+    inset: -6%;
+    background-size: cover;
+    background-position: center center;
+  }
+  .fv-slide.active .fv-slide-bg { animation: fvKenburns 3.2s ease-in-out forwards; }
+  @keyframes fvKenburns {
+    from { transform: scale(1); }
+    to   { transform: scale(1.14); }
+  }
   .fv-ov {
     position: absolute; inset: 0; z-index: 2;
     background: linear-gradient(to top, rgba(8,10,16,.96) 0%, rgba(8,10,16,.52) 46%, rgba(8,10,16,.18) 100%);
@@ -325,11 +339,11 @@
 
 <section id="fv">
   <div id="fv-bg">
-    <div class="fv-slide active" style="background-image:url('images/hero_01.jpg')"></div>
-    <div class="fv-slide" style="background-image:url('images/hero_02.jpg')"></div>
-    <div class="fv-slide" style="background-image:url('images/hero_03.jpg')"></div>
-    <div class="fv-slide" style="background-image:url('images/hero_04.jpg')"></div>
-    <div class="fv-slide" style="background-image:url('images/hero_05.jpg')"></div>
+    <div class="fv-slide active"><div class="fv-slide-bg" style="background-image:url('images/hero_01.jpg')"></div></div>
+    <div class="fv-slide"><div class="fv-slide-bg" style="background-image:url('images/hero_02.jpg')"></div></div>
+    <div class="fv-slide"><div class="fv-slide-bg" style="background-image:url('images/hero_03.jpg')"></div></div>
+    <div class="fv-slide"><div class="fv-slide-bg" style="background-image:url('images/hero_04.jpg')"></div></div>
+    <div class="fv-slide"><div class="fv-slide-bg" style="background-image:url('images/hero_05.jpg')"></div></div>
   </div>
   <div class="fv-ov"></div>
   <div class="fv-body-wrap">
@@ -508,9 +522,7 @@
       <div class="staff-ph"><img src="images/nakamura.jpg" alt="店主 中村さん"></div>
       <div>
         <p class="staff-lead">
-          毎晩、炭火の前に立ちながら考えることがあります。<br><br>
-          「今夜も、来てよかったと思っていただけるだろうか」<br><br>
-          そのために、仕込みも火入れも手を抜かない。<br>それが、彩りのすべてです。
+          今夜も、お客様に喜んでいただくために、仕込みも火入れも手を抜かない。<br>それが、彩りのすべてです。
         </p>
         <div class="rec-cards">
           <div class="rec-card">
@@ -544,11 +556,6 @@
     <p class="lead">
       何を頼もうか迷ったら、おまかせにしてください。<br>その日の仕入れに合わせた串盛りをご用意します。<br>最後の〆まで、手を抜きません。
     </p>
-    <div class="course-card">
-      <div class="course-name">🔥 焼き鳥おすすめ盛り合わせ</div>
-      <div class="course-price">5本 1,150円</div>
-      <p class="course-desc">その日の仕入れに合わせた店主厳選の串盛り。炭火焼き鳥の醍醐味をまるごとお楽しみください。</p>
-    </div>
     <p class="shime-head">🍵 一夜を締めくくる〆もの</p>
     <p class="shime-note">自家製の〆もので、今夜を丁寧に終える。</p>
     <div class="shime-list">
@@ -684,13 +691,31 @@
   var dots = document.querySelectorAll('.fv-dot');
   if (slides.length < 2) return;
   var current = 0;
-  setInterval(function () {
+
+  function restartKenburns(slide) {
+    var bg = slide.querySelector('.fv-slide-bg');
+    if (!bg) return;
+    bg.style.animation = 'none';
+    void bg.offsetWidth; // force reflow to restart the animation
+    bg.style.animation = '';
+  }
+
+  function goNext() {
+    var next = (current + 1) % slides.length;
     slides[current].classList.remove('active');
+    slides[current].classList.add('prev');
     dots[current] && dots[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-    dots[current] && dots[current].classList.add('active');
-  }, 5000);
+
+    slides[next].classList.add('active');
+    dots[next] && dots[next].classList.add('active');
+    restartKenburns(slides[next]);
+
+    var leaving = slides[current];
+    setTimeout(function () { leaving.classList.remove('prev'); }, 900);
+    current = next;
+  }
+
+  setInterval(goNext, 2600);
 })();
 </script>
 </body>
