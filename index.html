@@ -194,8 +194,18 @@
   .assort-price { font-size: .84rem; color: var(--gold); margin-top: 8px; font-weight: 500; }
   .btn-wrap-center { display: flex; justify-content: center; }
 
-  .sashi-ph { margin-bottom: 24px; display: flex; flex-direction: column; gap: 10px; }
-  .sashi-ph img { min-height: 220px; }
+  /* 地鶏刺し・自家製一品：常に縦並び（PC/モバイル共通）＋ 商品名キャプション */
+  .sashi-ph { margin-bottom: 24px; display: flex; flex-direction: column; gap: 20px; }
+  .sashi-item-block { }
+  .sashi-item-block img { min-height: 220px; }
+  .sashi-item-name {
+    font-family: var(--serif);
+    font-size: .88rem;
+    color: var(--gold-lt);
+    font-weight: 700;
+    letter-spacing: .08em;
+    margin-top: 10px;
+  }
 
   .best-list { border: 1px solid var(--border); margin-bottom: 24px; }
   .best-row { display: grid; grid-template-columns: 36px 1fr auto; align-items: center; gap: 12px; padding: 13px 16px; border-bottom: 1px solid var(--border); }
@@ -291,7 +301,7 @@
     .yk-cards { grid-template-columns: 1fr 1fr 1fr; }
     .yk-card  { grid-template-columns: 1fr; }
     .yk-card-ph img { min-height: 160px; }
-    .sashi-ph { flex-direction: row; }
+    /* 地鶏刺しセクションはPCでも縦並びを維持（横並びにしない） */
     .staff-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
     .staff-ph { margin-bottom: 0; }
     .cta-btns { flex-direction: row; justify-content: center; }
@@ -318,6 +328,8 @@
     <div class="fv-slide active" style="background-image:url('images/hero_01.jpg')"></div>
     <div class="fv-slide" style="background-image:url('images/hero_02.jpg')"></div>
     <div class="fv-slide" style="background-image:url('images/hero_03.jpg')"></div>
+    <div class="fv-slide" style="background-image:url('images/hero_04.jpg')"></div>
+    <div class="fv-slide" style="background-image:url('images/hero_05.jpg')"></div>
   </div>
   <div class="fv-ov"></div>
   <div class="fv-body-wrap">
@@ -332,7 +344,9 @@
       </div>
     </div>
   </div>
-  <div class="fv-dots"><span class="fv-dot active"></span><span class="fv-dot"></span><span class="fv-dot"></span></div>
+  <div class="fv-dots">
+    <span class="fv-dot active"></span><span class="fv-dot"></span><span class="fv-dot"></span><span class="fv-dot"></span><span class="fv-dot"></span>
+  </div>
   <div class="fv-scroll"><span>SCROLL</span><div class="fv-bar"></div></div>
 </section>
 
@@ -409,9 +423,18 @@
     <h2 class="ttl">鹿児島の地鶏を、<br>刺しで。</h2>
     <p class="lead">新鮮な地鶏だからこそ味わえる、生の旨み。<br>ここでしか食べられない一皿があります。</p>
     <div class="sashi-ph">
-      <img src="images/jidori_sashi.jpg" alt="地鶏刺し">
-      <img src="images/wagyu_steak.jpg" alt="和牛ステーキ">
-      <img src="images/shrimp_ahijo.jpg" alt="エビのアヒージョ">
+      <div class="sashi-item-block">
+        <img src="images/jidori_sashi.jpg" alt="地鶏刺し">
+        <div class="sashi-item-name">地鶏刺し</div>
+      </div>
+      <div class="sashi-item-block">
+        <img src="images/wagyu_steak.jpg" alt="和牛ステーキ">
+        <div class="sashi-item-name">和牛ステーキ</div>
+      </div>
+      <div class="sashi-item-block">
+        <img src="images/shrimp_ahijo.jpg" alt="エビのアヒージョ">
+        <div class="sashi-item-name">エビのアヒージョ</div>
+      </div>
     </div>
   </div>
 </section>
